@@ -1,3 +1,3 @@
 #!/usr/bin/python3
 x = 98
-print("{} Battery street".format(x))
+print(f"{x:d} Battery street")
