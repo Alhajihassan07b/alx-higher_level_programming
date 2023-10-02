@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-print("98 Battery street")
+x = 98
+print("{} Battery street".format(x))
