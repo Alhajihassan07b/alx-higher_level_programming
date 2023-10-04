@@ -1,9 +1,5 @@
 #!/usr/bin/python3
-result = ""
-for letter in reversed(range(ord('a'), ord('z') + 1)):
-    character = chr(letter)
-    if letter % 2 != 0:
-        result += character.upper()
-    else:
-        result += character.lower()
-print(result)
+for i in range(122, 96, -1):
+    if i % 2 != 0:
+        i = i - 32
+    print("{}".format(chr(i)), end="")
