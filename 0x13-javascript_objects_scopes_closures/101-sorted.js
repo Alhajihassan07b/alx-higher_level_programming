@@ -1,17 +1,18 @@
 #!/usr/bin/node
-const dict = require('./101-data').dict;
 
-const totalist = Object.entries(dict);
-const vals = Object.values(dict);
-const valsUniq = [...new Set(vals)];
-const newDict = {};
-for (const j in valsUniq) {
-  const list = [];
-  for (const k in totalist) {
-    if (totalist[k][1] === valsUniq[j]) {
-      list.unshift(totalist[k][0]);
-    }
+const { dict } = require('./101-data');
+
+const occurrencesDict = {};
+
+// Grouping user IDs by occurrence count
+Object.keys(dict).forEach(userId => {
+  const occurrences = dict[userId];
+  if (!occurrencesDict[occurrences]) {
+    occurrencesDict[occurrences] = [userId];
+  } else {
+    occurrencesDict[occurrences].push(userId);
   }
-  newDict[valsUniq[j]] = list;
-}
-console.log(newDict);
+});
+
+console.log('New dictionary by occurrence:', occurrencesDict);
+
